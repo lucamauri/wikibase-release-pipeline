@@ -137,6 +137,8 @@ services:
       - "traefik.http.routers.wdqs-frontend.rule=Host(`${WDQS_FRONTEND_PUBLIC_HOST}`)"
     environment:
       WDQS_HOST: wdqs-proxy
+    volumes:
+      - ./config/wdqs-frontend-custom-config.json:/templates/custom-config.json
     healthcheck:
       test: curl --silent --fail localhost
       interval: 10s
